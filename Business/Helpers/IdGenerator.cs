@@ -1,6 +1,4 @@
-﻿
-
-namespace Business.Helpers;
+﻿namespace Business.Helpers;
 
 public static class IdGenerator
 {

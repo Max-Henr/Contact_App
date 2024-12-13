@@ -2,7 +2,7 @@
 
 namespace Business.Models;
 
-public class Contact
+public class ContactRegForm
 {
     public string Id { get; set; } = null!;
     public string FirstName { get; set; } = null!;
