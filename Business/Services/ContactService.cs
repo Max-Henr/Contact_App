@@ -6,7 +6,7 @@ namespace Business.Services;
 public class ContactService(IFileService fileService) : IContactService
 {
     private readonly IFileService _fileService = fileService;
-    private List<ContactRegForm> _contacts = new();
+    private List<ContactRegForm> _contacts = (List<ContactRegForm>)fileService.GetContactList();
 
     public void CreateContact(ContactRegForm regForm)
     {   
