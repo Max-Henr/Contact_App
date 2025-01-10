@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Presentation.Maui_MainApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Presentation.Maui_MainApp"
+    FlyoutBehavior="Flyout"
+    Title="Contact App">
+
+    <!-- Define MainPage as the default page -->
+    <ShellContent
+        Title="Main Page"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <!-- Define AddContactPage -->
+    <ShellContent
+        Title="Add Contact"
+        ContentTemplate="{DataTemplate local:AddContactPage}"
+        Route="AddContactPage" />
+
+    <!-- Define ViewContactsPage -->
+    <ShellContent
+        Title="View Contacts"
+        ContentTemplate="{DataTemplate local:ViewContactsPage}"
+        Route="ViewContactsPage" />
+</Shell>

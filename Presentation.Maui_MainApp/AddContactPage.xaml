@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Business.Models;assembly=Business"
+             xmlns:viewmodels="clr-namespace:Presentation.Maui_MainApp.ViewModels"
+             x:DataType="{x:Type viewmodels:MainViewModel}"
+             x:Class="Presentation.Maui_MainApp.AddContactPage"
+             Title="AddContact">
+
+    <Grid RowDefinitions="auto, *">
+        <VerticalStackLayout Grid.Row="0">
+            <Label Text="First Name" Margin="30, 10"></Label>
+            <Entry Text="{Binding RegistrationForm.FirstName}" Margin="20, 10"></Entry>
+            <Label Text="Last Name" Margin="30, 10"></Label>
+            <Entry Text="{Binding RegistrationForm.LastName}" Margin="20, 10"></Entry>
+            <Label Text="Email" Margin="30, 10"></Label>
+            <Entry Text="{Binding RegistrationForm.Email}" Margin="20, 10"></Entry>
+            <Label Text="Phone Number" Margin="30, 10"></Label>
+            <Entry Text="{Binding RegistrationForm.Phone}" Margin="20, 10"></Entry>
+            <Label Text="Address" Margin="30, 10"></Label>
+            <Entry Text="{Binding RegistrationForm.Address}" Margin="20, 10"></Entry>
+            <Label Text="Postal Code" Margin="30, 10"></Label>
+            <Entry Text="{Binding RegistrationForm.PostalCode}" Margin="20, 10"></Entry>
+            <Label Text="City" Margin="30, 10"></Label>
+            <Entry Text="{Binding RegistrationForm.City}" Margin="20, 10"></Entry>
+            <Button Command="{Binding AddContactToListCommand}" Text="Add Contact" Margin="20, 20" Padding="0, 10"></Button>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

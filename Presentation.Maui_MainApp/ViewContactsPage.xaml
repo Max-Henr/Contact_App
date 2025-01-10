@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Business.Models;assembly=Business"
+             xmlns:viewmodels="clr-namespace:Presentation.Maui_MainApp.ViewModels"
+             x:DataType="{x:Type viewmodels:MainViewModel}"
+             x:Class="Presentation.Maui_MainApp.ViewContactsPage"
+             Title="ViewContactsPage">
+    <ScrollView>
+    <Grid RowDefinitions="auto, auto, auto" Margin="20,20">
+        <CollectionView Grid.Row="1" ItemsSource="{Binding ContactList}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type models:ContactRegForm}">
+                    <Grid ColumnDefinitions="*,auto, auto">
+                        <VerticalStackLayout Grid.Column="0" Margin="0, 20">
+                            <Label>
+                                <Label.Text>
+                                    <MultiBinding StringFormat="Fullname: {0} {1}">
+                                        <Binding Path="FirstName"/>
+                                        <Binding Path="LastName"/>
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                            <Label>
+                                <Label.Text>
+                                    <MultiBinding StringFormat="Contact Info: &#x0a;Email: {0} &#x0a;Phone Number: {1}">
+                                        <Binding Path="Email"/>
+                                        <Binding Path="Phone"/>
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                            <Label>
+                                <Label.Text>
+                                    <MultiBinding StringFormat="Address: &#x0a;Street: {0} &#x0a;Postal Code: {1} &#x0a;City: {2}">
+                                        <Binding Path="Address"/>
+                                        <Binding Path="PostalCode"/>
+                                        <Binding Path="City"/>
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                        </VerticalStackLayout>
+                        <Button 
+                            Grid.Column="1"
+                            Text="Edit"
+                            Margin="20,20"
+                            CommandParameter="{Binding .}"
+                            Command="{Binding Path=EditContatCommand, Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}}">
+                            
+                        </Button>
+                        <Button 
+                            Grid.Column="2" 
+                            Text="X" 
+                            Margin="0,20"
+                            CommandParameter="{Binding .}"
+                            Command="{Binding Path=RemoveContactFromListCommand, Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}}"></Button>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <StackLayout Grid.Row="2" IsVisible="{Binding SelectedContact, Converter={StaticResource NullToBooleanConverter}}" Margin="0,20">
+            <Label Text="Edit Contact" FontSize="20" FontAttributes="Bold" />
+            <Entry Placeholder="First Name" Text="{Binding RegistrationForm.FirstName}" />
+            <Entry Placeholder="Last Name" Text="{Binding RegistrationForm.LastName}" />
+            <Entry Placeholder="Email" Text="{Binding RegistrationForm.Email}" />
+            <Entry Placeholder="Phone Number" Text="{Binding RegistrationForm.PhoneNumber}" />
+            <Entry Placeholder="Address" Text="{Binding RegistrationForm.Address}" />
+            <Entry Placeholder="Postal Code" Text="{Binding RegistrationForm.PostalCode}" />
+            <Entry Placeholder="City" Text="{Binding RegistrationForm.City}" />
+            <Button Text="Save Changes" Command="{Binding SaveEditedContactCommand}" BackgroundColor="Green" TextColor="White" />
+        </StackLayout>
+    </Grid>
+    </ScrollView>
+</ContentPage>

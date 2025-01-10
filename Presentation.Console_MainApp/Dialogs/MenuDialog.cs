@@ -41,7 +41,7 @@ public class MenuDialog(IContactService contactService) : IMenuDialog
     public void AddContact()
     {
         var contact = ContactFactory.Create();
-   
+
         Console.Write("Enter your first name: ");
         contact.FirstName = Console.ReadLine()!;
 
